@@ -1,46 +1,33 @@
 # tensorrt-customer-op-samples
 
 
-## hello-world 
 
-* [setuptools: building extension module](https://setuptools.pypa.io/en/latest/userguide/ext_modules.html)
+## setuptool_demo 
 
-* [demo: building python C/C++ extension with setuptools](https://elmjag.github.io/setuptools.html)
+* there are two things in mind:
+    * setuptool module is only responsible for compiling C++ functions/class
+    * pybinding module is actually used to mapping the functions in C++ to Python
 
-* [pybinds](https://realpython.com/python-bindings-overview/)
+* both `setuptool` and `pybind11` moduels need first be installed.  
 
-* [build python extension modules for c++ with pybind11](https://alextereshenkov.github.io/pybind11-python-bindings.html)
-
-
-
-
+* build & test 
 
 ```sh
-# build libs and put it in source dir 
-python setup.py build_ext --inplace  
-# build lib and put in normal dir
-python setup.py build 
-
+# for local test, run the following command
+python3 setup.py build 
+# for container test, can directly isntall
+python3 setup.py build install
+# test 
+python3 test.py
 ```
 
 
 
-## issues
+* reference 
+    * [setuptools: building extension module](https://setuptools.pypa.io/en/latest/userguide/ext_modules.html)
+    * [pybind11](https://pybind11.readthedocs.io/en/stable/basics.html)
+        * [Pybinding::Extension sample code](https://github.com/pybind/python_example)
+    * [zhihu, 使用pybinding封装c++](https://zhuanlan.zhihu.com/p/80884925)
 
 
-
-* check [pybind11](https://pybind11.readthedocs.io/en/stable/basics.html)
-
-```sh
-$ c++ -O3 -Wall -shared -std=c++11 -fPIC $(python3 -m pybind11 --includes) example.cpp -o example$(python3-config --extension-suffix)
-```
-
-* [sample code](https://github.com/pybind/python_example)
-
-
-```yml
-dynamic module does not define module export function(PyInit_add)
-```
-
-* [zhihu, 使用pybinding封装c++](https://zhuanlan.zhihu.com/p/80884925)
-
+## hello_world
