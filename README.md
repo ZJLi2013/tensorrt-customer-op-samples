@@ -21,8 +21,6 @@ python3 setup.py build install
 python3 test.py
 ```
 
-
-
 * reference 
     * [setuptools: building extension module](https://setuptools.pypa.io/en/latest/userguide/ext_modules.html)
     * [pybind11](https://pybind11.readthedocs.io/en/stable/basics.html)
@@ -30,4 +28,9 @@ python3 test.py
     * [zhihu, 使用pybinding封装c++](https://zhuanlan.zhihu.com/p/80884925)
 
 
-## hello_world
+
+## yolov5_nms_plugin
+
+based on project from [NV-AI-IOT](https://github.com/NVIDIA-AI-IOT/yolov5_gpu_optimization)
+
+
