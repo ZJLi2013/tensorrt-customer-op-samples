@@ -31,6 +31,18 @@ python3 test.py
 
 ## yolov5_nms_plugin
 
-based on project from [NV-AI-IOT](https://github.com/NVIDIA-AI-IOT/yolov5_gpu_optimization)
+this sample is derived from [NV-AI-IOT/yolov5_gpu_optimization](https://github.com/NVIDIA-AI-IOT/yolov5_gpu_optimization)
+
+* step1:
+	* using `Dockerfile_onnx` to generate `yolov5.onnx`, which is derived from [ultra/yolov5](https://github.com/ultralytics/yolov5), but need modify the outputs of model from original `concated_xy_wh_conf` layout to `bbox, score` layout
+
+* step2:
+	* run `python3 onnx_nms_insert.py` to insert nms plugin to `yolov5.onnx` 
+
+* step3:
+	* run inference with script from `yolov5_gpu_optimization` as:
+	```sh
+	python yolov5_trt_inference.py --input_images_folder=</path/to/coco/images/val2017/> --output_images_folder=./coco_output --onnx=</path/to/yolov5s.onnx>
+	```
 
 
