@@ -84,6 +84,14 @@ step3: yolov5_trt_inference中，通过 trt.onnx_parser(yolov5.onnx) 生成 yolo
 
 
 
+#### about initLibNvInferPlugins 
+
+* To use TensorRT registered plugins in your application, the libnvinfer_plugin.so library must be loaded and all plugins must be registered. This can be done by calling initLibNvInferPlugins(void* logger, const char* libNamespace)() in your application code.  [isse579](https://github.com/NVIDIA/TensorRT/issues/579))
+
+* The ONNX parser calls initLibNvInferPlugins() internally. This function registers the builtin TensorRT plugins.  [issue736](https://github.com/onnx/onnx-tensorrt/issues/736)
+
+
+
 ## reference 
 
 * [知乎：实现TensorRT自定义插件(plugin)自由](https://zhuanlan.zhihu.com/p/297002406)
